@@ -1,0 +1,26 @@
+--- a/BUILD.gn	2021-12-14 00:48:43.975630146 +0100
++++ b/BUILD.gn	2021-12-14 00:53:57.758166929 +0100
+@@ -852,11 +852,6 @@ component("skia") {
+     ":xml",
+   ]
+ 
+-  # This file (and all GN files in Skia) are designed to work with an
+-  # empty sources assignment filter; we handle all that explicitly.
+-  # We clear the filter here for clients who may have set up a global filter.
+-  set_sources_assignment_filter([])
+-
+   sources = []
+   sources += skia_core_sources
+   sources += skia_utils_sources
+@@ -1000,11 +1000,6 @@ static_library("pathkit") {
+     ":ssse3",
+   ]
+ 
+-  # This file (and all GN files in Skia) are designed to work with an
+-  # empty sources assignment filter; we handle all that explicitly.
+-  # We clear the filter here for clients who may have set up a global filter.
+-  set_sources_assignment_filter([])
+-
+   sources = []
+   sources += skia_pathops_sources
+   sources += [

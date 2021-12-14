@@ -25,6 +25,8 @@ SRCREV = "7469a9341afab19271b8ef07af5c16a0f2c4ccc1"
 SRC_URI = "\
     git://skia.googlesource.com/skia.git;protocol=https;branch=chrome/m${PV} \
     file://gn-BUILDCONFIG.gn-Fix-is_clang.py-exec_script-path.patch \
+    file://gn-remove-obsolete-function.patch \
+    file://arm64-skia.patch \
 "
 
 S = "${WORKDIR}/git"

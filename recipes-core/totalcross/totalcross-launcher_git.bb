@@ -2,6 +2,12 @@ require totalcross.inc
 
 DESCRIPTION = "TotalCross Laucher Machine"
 
+DEPENDS = "libsdl2 skia"
+
+inherit features_check
+
+REQUIRED_DISTRO_FEATURES = "opengl"
+
 S = "${WORKDIR}/git/TotalCrossVM/src"
 B = "${S}"
 
@@ -14,7 +20,7 @@ EXTRA_OEMAKE += "\
     SDL_INC='${STAGING_INCDIR}/SDL2' \
     SKIADIR='${STAGING_INCDIR}/skia/include' \
     SRCDIR='${S}/launchers/linux' \
-    LIBS='-L. -lskia -lstdc++ -lpthread -lEGL -lfontconfig $(SDLDIR)/libSDL2main.a' \
+    LIBS='-R${libdir}/totalcross -L. -lskia -lstdc++ -lpthread -lEGL -lfontconfig $(SDLDIR)/libSDL2main.a' \
 "
 
 do_configure() {

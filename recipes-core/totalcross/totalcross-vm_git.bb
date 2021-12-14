@@ -2,6 +2,12 @@ require totalcross.inc
 
 DESCRIPTION = "TotalCross Virtual Machine"
 
+DEPENDS = "libsdl2 skia"
+
+inherit features_check
+
+REQUIRED_DISTRO_FEATURES = "opengl"
+
 S = "${WORKDIR}/git/TotalCrossVM/src"
 B = "${S}"
 
