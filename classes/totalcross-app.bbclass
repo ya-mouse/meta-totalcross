@@ -12,7 +12,7 @@ totalcross_install() {
     for f in TCBase.tcz TCFont.tcz TCUI.tcz; do \
       ln -s ${libdir}/totalcross/${f} ${D}${TOTALCROSS_APP_DIR_NAME}/${f}; \
     done
-    ln -s ${libdir}/totalcross/totalcross-launcher ${D}${TOTALCROSS_APP_DIR_NAME}/${TOTALCROSS_APP_NAME}
+#    ln -s ${libdir}/totalcross/totalcross-launcher ${D}${TOTALCROSS_APP_DIR_NAME}/${TOTALCROSS_APP_NAME}
 }
 do_install[postfuncs] += "totalcross_install"
 
@@ -31,6 +31,6 @@ do_install[postfuncs] += "totalcross_run_script"
 
 FILES_${PN} += "${TOTALCROSS_APP_DIR_NAME}"
 
-RDEPENDS_${PN} += "totalcross-vm totalcross-vm-core totalcross-launcher"
+RDEPENDS_${PN} += "totalcross-vm totalcross-vm-core totalcross-launcher libgpiod"
 
 INSANE_SKIP_${PN} += "already-stripped ldflags"

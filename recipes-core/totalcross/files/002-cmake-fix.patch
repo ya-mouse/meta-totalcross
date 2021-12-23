@@ -1,0 +1,16 @@
+diff --git a/TotalCrossVM/modules/FindSkia.cmake b/TotalCrossVM/modules/FindSkia.cmake
+index b2ebb9675..b83260bc7 100644
+--- TotalCrossVM.orig/modules/FindSkia.cmake
++++ TotalCrossVM/modules/FindSkia.cmake
+@@ -47,6 +47,11 @@ find_path(
+ 
+ SET ( SKIA_INCLUDE_DIRS
+   "${SKIA_DIR}"
++  "${SKIA_CONFIG_INCLUDE_DIR}"
++  "${SKIA_CORE_INCLUDE_DIR}"
++  "${SKIA_UTILS_INCLUDE_DIR}"
++  "${SKIA_EFFECTS_INCLUDE_DIR}"
++  "${SKIA_GPU_INCLUDE_DIR}"
+ )
+ 
+ IF (DEFINED ANDROID_ABI)

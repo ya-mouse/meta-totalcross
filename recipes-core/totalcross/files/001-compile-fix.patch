@@ -1,0 +1,14 @@
+diff --git TotalCrossVM.orig/src/util/posix/debug_c.h TotalCrossVM/src/util/posix/debug_c.h
+index 94eb24e86..5735fab7e 100644
+--- TotalCrossVM.orig/src/util/posix/debug_c.h
++++ TotalCrossVM/src/util/posix/debug_c.h
+@@ -48,8 +48,7 @@ static bool privateDebug(char* str)
+       else
+       {
+          fputs(str,fdebug);   
+-         printf(str);
+-         printf("\n");
++         printf("%s\n", str);
+          err = (fputs("\n",fdebug) >= 0);
+          fflush(fdebug);
+          fsync(fileno(fdebug));

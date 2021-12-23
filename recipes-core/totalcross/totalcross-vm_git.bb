@@ -4,12 +4,17 @@ DESCRIPTION = "TotalCross Virtual Machine"
 
 DEPENDS = "libsdl2 skia"
 
-inherit features_check
+inherit cmake features_check
 
 REQUIRED_DISTRO_FEATURES = "opengl"
 
-S = "${WORKDIR}/git/TotalCrossVM/src"
+S = "${WORKDIR}/git/TotalCrossVM"
 B = "${S}"
+
+SRC_URI += " \
+    file://001-compile-fix.patch \
+    file://002-cmake-fix.patch \
+    "
 
 inherit lib_package
 
@@ -24,17 +29,14 @@ EXTRA_OEMAKE += "\
     SRCDIR='${S}' \
 "
 
-SECURITY_STRINGFORMAT = ""
-do_configure() {
-    cp ${S}/../builders/gcc-linux-arm/tcvm/Makefile .
-}
+# EXTRA_OECMAKE += "-DCMAKE_EXE_LINKER_FLAGS='-R${libdir}/totalcross'"
+EXTRA_OECMAKE += " -DSKIA_DIR='${STAGING_INCDIR}/skia' -DSKIA_LIBRARIES=-lskia"
 
-do_compile() {
-    oe_runmake
-}
+
+SECURITY_STRINGFORMAT = ""
 
 do_install() {
-    install -Dm 0755 ${B}/bin/libtcvm.so ${D}${libdir}/totalcross/libtcvm.so.1
+    install -Dm 0755 ${B}/libtcvm.so ${D}${libdir}/totalcross/libtcvm.so.1
     ln -sf libtcvm.so.1 ${D}${libdir}/totalcross/libtcvm.so
 }
 

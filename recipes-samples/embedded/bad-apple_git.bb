@@ -24,4 +24,5 @@ do_install() {
     for f in LitebaseLib.tcz Material\ Icons.tcz ${TOTALCROSS_APP_NAME}.tcz; do \
         install -m 0644 "${S}/target/install/linux_arm/${f}" "${D}${TOTALCROSS_APP_DIR_NAME}/${f}"; \
     done
+    install -m 0755 ${S}/target/install/linux_arm/${TOTALCROSS_APP_NAME} ${D}${TOTALCROSS_APP_DIR_NAME}/${TOTALCROSS_APP_NAME}
 }

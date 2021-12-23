@@ -1,0 +1,18 @@
+diff --git a/TotalCrossSDK/build.gradle b/TotalCrossSDK/build.gradle
+index 9078609de..7f91aaf65 100644
+--- TotalCrossSDK.orig/build.gradle
++++ TotalCrossSDK/build.gradle
+@@ -113,13 +113,6 @@ dependencies {
+     compile(group: 'com.totalcross.annotations', name: 'totalcross-annotations', version: '1.0.0')
+ }
+ 
+-test {
+-    useJUnitPlatform ()
+-    testLogging {
+-        exceptionFormat = 'full'
+-    }
+-}
+-
+ jar {
+     exclude 'totalcross/res/mp3/**', 'totalcross/chartypes.bin'
+     from(sourceSets.litebase.output)

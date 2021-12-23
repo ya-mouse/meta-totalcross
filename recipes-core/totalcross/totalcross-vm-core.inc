@@ -8,6 +8,10 @@ DEPENDS = "openjdk-8-native"
 S = "${WORKDIR}/git/TotalCrossSDK"
 B = "${S}"
 
+SRC_URI += " \
+    file://003-sdk-remove-test.patch \
+    "
+
 export JAVA_HOME="${STAGING_DIR_NATIVE}/usr/lib/jvm/openjdk-8-native"
 
 do_compile() {
