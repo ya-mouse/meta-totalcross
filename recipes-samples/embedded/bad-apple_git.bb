@@ -25,7 +25,7 @@ do_install() {
         install -m 0644 "${S}/target/install/linux_arm/${f}" "${D}${TOTALCROSS_APP_DIR_NAME}/${f}"; \
     done
     install -m 0755 ${S}/target/install/linux_arm/${TOTALCROSS_APP_NAME} ${D}${TOTALCROSS_APP_DIR_NAME}/${TOTALCROSS_APP_NAME}
-    for d in init.d rc3.d; do \
+    for d in init.d rc3.d rc5.d; do \
         install -dm 0755 ${D}/etc/${d}; \
     done
     cat <<EOF>${D}/etc/init.d/bad-apple
@@ -34,4 +34,5 @@ ${bindir}/totalcross-${TOTALCROSS_APP_NAME} &
 EOF
     chmod 0755 ${D}/etc/init.d/bad-apple
     ln -s ../init.d/bad-apple ${D}/etc/rc3.d/S02bad-apple
+    ln -s ../init.d/bad-apple ${D}/etc/rc5.d/S02bad-apple
 }
